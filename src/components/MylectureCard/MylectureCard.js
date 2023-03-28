@@ -57,16 +57,22 @@ const MylectureCard = ({
           height="160"
           src={img}
           alt="Caffe Latte"
+          _hover={{ cursor: 'pointer' }}
         />
       </Box>
       <Stack>
-        <CardBody>
+        <CardBody _hover={{ cursor: 'pointer' }}>
           <Box
             onClick={() => {
               navigate(`/lectures/${lectureNumber}`);
             }}
           >
-            <Heading size="md" fontSize="17px" h="45">
+            <Heading
+              size="md"
+              fontSize="17px"
+              h="45"
+              _hover={{ cursor: 'pointer' }}
+            >
               {text}
             </Heading>
             <Text py="2">{instructor}</Text>
