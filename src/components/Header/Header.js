@@ -39,7 +39,6 @@ export default function Header(props) {
   const handleLogout = () => {
     removeAccessToken();
     isLoggedInVar(false);
-    localStorage.setItem('isLoggedIn', false);
   };
 
   useEffect(() => {

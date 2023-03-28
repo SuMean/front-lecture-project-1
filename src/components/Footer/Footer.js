@@ -152,6 +152,15 @@ export default function LargeWithLogoCentered() {
             >
               김남욱
             </Link>
+            <Link
+              _hover={{
+                color: 'white',
+                fontWeight: '600',
+              }}
+              href={'#'}
+            >
+              이승아
+            </Link>
           </Stack>
           <Stack align={'center'}>
             <Link
