@@ -20,7 +20,7 @@ const ListHeader = ({ children }) => {
 
 export default function LargeWithLogoCentered() {
   return (
-    <Box bg="#262C33" color={useColorModeValue('gray.400')}>
+    <Box bg="#262C33" color={useColorModeValue('gray.400')} marginTop="20">
       <Container as={Stack} maxW={'6xl'} py={8}>
         <SimpleGrid
           columns={{ base: 1, sm: 2, md: 4 }}

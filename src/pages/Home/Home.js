@@ -51,7 +51,7 @@ function Home() {
                 showArrows={false}
                 autoPlay={true}
                 infiniteLoop={true}
-                interval={4000}
+                interval={3500}
                 style={{ height: '100%' }}
               >
                 <Box>
@@ -87,10 +87,10 @@ function Home() {
 
           <Flex>
             <Box w="100%" h="480px" textAlign="center">
-              <Heading size="lg" mt={10}>
+              <Heading size="lg" mt={10} paddingTop="10">
                 POPULAR CLASS
               </Heading>
-              <Container as={Stack} maxW={'6xl'} py={10} mb={10}>
+              <Container as={Stack} maxW={'6xl'} py={20} mb={10}>
                 <Carousel
                   showThumbs={false}
                   showIndicators={false}
@@ -142,11 +142,11 @@ function Home() {
           </Flex>
 
           <Box bg="white" w="100%" h="450px" textAlign="center">
-            <Heading size="lg" mb={9}>
+            <Heading size="lg" py="20" my="5">
               수강항목
             </Heading>
 
-            <Container as={Stack} maxW={'6xl'} py={10}>
+            <Container as={Stack} maxW={'6xl'}>
               <SimpleGrid columns={{ base: 1, md: 4 }} spacing={8}>
                 <Stack align={'center'}>
                   <Link
@@ -161,12 +161,20 @@ function Home() {
                       direction={{ base: 'column' }}
                       variant="outline"
                       borderRadius={20}
+                      boxShadow="md"
                       align={'center'}
                       borderColor="#003c93"
                       borderWidth={4}
+                      justifyContent={'center'}
                     >
                       <Stack mt={5}>
-                        <FaHtml5 size="155" color="#003c93" />
+                        <Box
+                          w="fit-content"
+                          _hover={{ transform: 'scale(1.1)' }}
+                          transition="transform 0.2s ease"
+                        >
+                          <FaHtml5 size="150" color="#003c93" />
+                        </Box>
                         <CardBody>
                           <Heading size="md" fontSize="17px">
                             기초코딩
@@ -190,11 +198,19 @@ function Home() {
                       variant="outline"
                       borderRadius={20}
                       align={'center'}
+                      boxShadow="md"
                       borderColor="#003c93"
                       borderWidth={4}
+                      justifyContent={'center'}
                     >
                       <Stack mt={7}>
-                        <FaReact size="150" color="#003c93" />
+                        <Box
+                          w="fit-content"
+                          _hover={{ transform: 'scale(1.1)' }}
+                          transition="transform 0.2s ease"
+                        >
+                          <FaReact size="150" color="#003c93" />
+                        </Box>
                         <CardBody>
                           <Heading size="md" fontSize="17px">
                             프론트엔드
@@ -217,12 +233,20 @@ function Home() {
                       direction={{ base: 'column' }}
                       variant="outline"
                       borderRadius={20}
+                      boxShadow="md"
                       align={'center'}
                       borderColor="#003c93"
                       borderWidth={4}
+                      justifyContent={'center'}
                     >
                       <Stack mt={10}>
-                        <SiSpring size="140" color="#003c93" />
+                        <Box
+                          w="fit-content"
+                          _hover={{ transform: 'scale(1.1)' }}
+                          transition="transform 0.2s ease"
+                        >
+                          <SiSpring size="140" color="#003c93" />
+                        </Box>
                         <CardBody>
                           <Heading size="md" fontSize="17px">
                             백엔드
@@ -245,12 +269,20 @@ function Home() {
                       direction={{ base: 'column' }}
                       variant="outline"
                       borderRadius={20}
+                      boxShadow="md"
                       align={'center'}
                       borderColor="#003c93"
                       borderWidth={4}
+                      justifyContent={'center'}
                     >
                       <Stack mt={9}>
-                        <FaMobile size="150" color="#003c93" />
+                        <Box
+                          w="fit-content"
+                          _hover={{ transform: 'scale(1.1)' }}
+                          transition="transform 0.2s ease"
+                        >
+                          <FaMobile size="150" color="#003c93" />
+                        </Box>
                         <CardBody>
                           <Heading size="md" fontSize="17px">
                             모바일
@@ -263,17 +295,23 @@ function Home() {
               </SimpleGrid>
             </Container>
           </Box>
-          <Box bg="white" w="100%" h="800px" textAlign="center">
-            <Heading size="lg" mt={10} mb={4}>
-              수강후기
+          <Box
+            bg="white"
+            w="100%"
+            h="800px"
+            textAlign="center"
+            marginBottom="20"
+          >
+            <Heading size="lg" py="20" marginTop="20">
+              😊수강 후기😊
             </Heading>
 
             <Container as={Stack} maxW={'6xl'} py={5}>
-              <Stack direction={'row'} justify={'center'} spacing={10} mb={10}>
-                <Text fontSize="3xl" fontWeight={'bold'}>
+              {/* <Stack direction={'row'} justify={'center'} spacing={10} mb={10}>
+                <Text fontSize="2xl" fontWeight={'bold'}>
                   😊베스트 수강평😊
                 </Text>
-              </Stack>
+              </Stack> */}
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
                 {data?.review.map(item => {
                   console.log({ item: item });
