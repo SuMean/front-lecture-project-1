@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Single+Day&display=swap');
 .imgDiv {
   display: flex;
   flex-direction: column;
@@ -19,4 +20,7 @@
   margin: auto;
 }
 .p {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
 }

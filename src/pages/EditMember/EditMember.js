@@ -4,7 +4,12 @@ import { useForm } from 'react-hook-form';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import css from './EditMember.module.scss';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from 'react-router-dom';
 
 // import { getMyProfile } from '../../api';
 import { QueryClient, useQuery, useQueryClient } from '@tanstack/react-query';
@@ -15,16 +20,30 @@ import {
   changeProfileUser,
   instance,
 } from '../../api';
-
+import ModalBasic from '../../components/Modal/ModalBasic';
 import { useMutation } from '@tanstack/react-query';
 const EditMember = () => {
   // useEffect(() => {}, [data.name]);
   // LoginOnlyPage();
-  const { isLoading, data, getValues } = useQuery(['myprofile'], getMyProfile);
+
+  // if (isError) {
+  //   navigate('/notfound');
+  // }
+  const [click, setClick] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
+  const { isLoading, data, isError } = useQuery(['myprofile'], getMyProfile, {
+    retry: false,
+  });
+  if (isError) {
+    console.log('hello');
+    navigate('/notfound');
+  }
   const {
     register,
     handleSubmit,
     watch,
+    getValues,
     formState: { errors },
   } = useForm();
   const mutation = useMutation(changeProfileUser, {
@@ -34,6 +53,7 @@ const EditMember = () => {
     },
     onSuccess: () => {
       console.log('API CALL success...');
+      setSuccess(true);
     },
     onError: () => {
       console.log('API CALL error...');
@@ -248,7 +268,13 @@ const EditMember = () => {
                   </p>
                 )}
                 <div className={css.buttonContainer}>
-                  <button type="submit" className={css.Button}>
+                  <button
+                    type="submit"
+                    className={css.Button}
+                    onClick={() => {
+                      setClick(true);
+                    }}
+                  >
                     회원정보 수정
                   </button>
                 </div>
@@ -256,6 +282,16 @@ const EditMember = () => {
             </div>
           </div>
         </div>
+
+        {success && click && (
+          <ModalBasic
+            isOpen={true}
+            successContent={'회원 정보 수정되었습니다아아아~~~'}
+            onClose={() => {
+              setClick(false);
+            }}
+          />
+        )}
       </>
     );
   }

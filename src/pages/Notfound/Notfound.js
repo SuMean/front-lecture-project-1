@@ -11,9 +11,7 @@ const Notfound = () => {
             alt="logo"
             width="400"
           />
-          <p className={css.p}>
-            현재 페이지는 없는 페이지입니다. 올바른 url로 가주세용!
-          </p>
+          <p className={css.p}>읍는 페이지입니다</p>
         </div>
       </div>
     </>

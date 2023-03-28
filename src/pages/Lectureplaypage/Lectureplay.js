@@ -24,6 +24,7 @@ import {
 } from '@chakra-ui/react';
 import ReactPlayer from 'react-player';
 import LectureHeader from '../../components/LectureHeader/LectureHeader';
+import Notfound from '../Notfound/Notfound';
 import {
   fetchVideoList,
   savePlayedSeconds,
@@ -53,16 +54,22 @@ const Video = () => {
     isLoading,
     isError,
   } = useQuery(queryKey, fetchVideoList, {
+    retry: false,
     staleTime: 5000,
     cacheTime: 0,
     refetchOnMount: true,
   }); // 로딩때 전 내용이 보이고 끔뻑이던 문제 해결
+  if (isError) {
+    navigate('/notlogin');
+  }
+
   const queryClient = useQueryClient();
   const savePlayedSecondsMutation = useMutation(savePlayedSeconds, {
     onSuccess: () => {
       queryClient.invalidateQueries(queryKey);
     },
   });
+
   const watchedlectures80Mutation = useCallback(
     useMutation(watchedlectures80, {
       onSuccess: () => {

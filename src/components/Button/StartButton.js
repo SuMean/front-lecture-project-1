@@ -19,7 +19,7 @@ const StartButton = ({ lectureTitle, is_enrolled }) => {
         justifyContent="space-between"
         alignItems="center"
         h="100%"
-        w="900px"
+        w="1200px"
         fontWeight="bold"
         rounded="15"
         bg="white"
@@ -27,7 +27,7 @@ const StartButton = ({ lectureTitle, is_enrolled }) => {
         px="20"
         boxShadow="1px 1px 10px rgba(0, 0, 0, 0.1)"
       >
-        <Box fontSize="20px" color="gray.600">
+        <Box fontSize="18px" color="gray.600">
           {lectureTitle}
         </Box>
         <Box h="100%">

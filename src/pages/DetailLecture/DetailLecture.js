@@ -49,13 +49,22 @@ const DetailLecture = () => {
   const { id } = useParams();
   const [registerLectureClick, setRegisterLectureClick] = useState(false);
   const [loginCheck, setLoginCheck] = useState(true);
-  const [lectureData, setLectureData] = useState(null);
-  const { isLoading, error, data } = useQuery(['lectureInfo', id], () =>
-    getLectureDetail(id)
-  );
-
-  const queryClient = useQueryClient();
   const navigate = useNavigate();
+  const [lectureData, setLectureData] = useState(null);
+  const { isLoading, error, data } = useQuery(
+    ['lectureInfo', id],
+
+    () => {
+      getLectureDetail(id);
+    }
+  );
+  if (error) {
+    navigate('/notfound');
+  }
+  // if (error) {
+  //   navigate('/notfound');
+  // }
+  const queryClient = useQueryClient();
 
   const { mutate } = useMutation(registerLecture, {
     onMutate: d => console.log('mutate', d),

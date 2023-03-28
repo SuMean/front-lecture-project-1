@@ -13,7 +13,7 @@ import {
   Box,
   Flex,
 } from '@chakra-ui/react';
-const ModalBasic = ({ isOpen, title, subtitle, successContent }) => {
+const ModalBasic = ({ isOpen, title, subtitle, successContent, onClose }) => {
   const [modalClick, setModalClick] = useState(true);
   const navigate = useNavigate();
   const handleModalClose = () => {
@@ -21,9 +21,13 @@ const ModalBasic = ({ isOpen, title, subtitle, successContent }) => {
       setTimeout(() => {
         navigate('/login');
       }, 1000);
+    } else if (successContent == '아이디랑 비밀번호를 확인해주세요') {
+      setModalClick(false);
+      onClose();
+    } else {
+      setModalClick(false);
+      onClose();
     }
-
-    setModalClick(false);
   };
 
   return (

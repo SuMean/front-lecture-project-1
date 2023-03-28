@@ -14,6 +14,7 @@ import MyLecture from '../components/Mylecturepage/Mylecture';
 import Video from './Lectureplaypage/Lectureplay';
 import PreparePage from './PreparePage/PreparePage';
 import Notfound from './Notfound/Notfound';
+import NotLoginPage from './NotLoginPage/NotLoginPage';
 function Router() {
   const isLoggedIn = useReactiveVar(isLoggedInVar);
   // useEffect(() => {
@@ -112,6 +113,8 @@ function Router() {
           }
         />
         <Route path="*" element={<Notfound />} />
+        <Route path="/notFound" element={<Notfound />} />
+        <Route path="/notlogin" element={<NotLoginPage />} />
       </Routes>
     </BrowserRouter>
   );

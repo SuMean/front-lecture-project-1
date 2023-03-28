@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../Header/Header';
@@ -11,8 +11,18 @@ import { getLectureInfo } from '../../api';
 function MyLecture() {
   const navigate = useNavigate();
 
-  const { isLoading, data } = useQuery(['lectureInfo'], () => getLectureInfo());
-
+  const { isLoading, data, isError } = useQuery(['lectureInfo'], () =>
+    getLectureInfo()
+  );
+  if (isError) {
+    navigate('/notfound');
+    console.log('hello');
+  }
+  useEffect(() => {
+    if (isError) {
+      navigate('/notfound');
+    }
+  }, [isError, navigate]);
   if (data) {
     console.log(data.calculatedLecture);
     return (
