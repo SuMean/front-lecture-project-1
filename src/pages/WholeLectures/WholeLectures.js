@@ -259,7 +259,7 @@ function WholeLectures() {
                   rightIcon={<ChevronRightIcon />}
                   onClick={() =>
                     handlePageChange(
-                      pageNum < totalPages ? pageNum + 1 : totalPages
+                      pageNum < totalPages ? parseInt(pageNum) + 1 : totalPages
                     )
                   }
                   disabled={pageNum >= totalPages}

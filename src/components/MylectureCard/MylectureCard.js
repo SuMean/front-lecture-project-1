@@ -78,7 +78,7 @@ const MylectureCard = ({
             <Text py="2">{instructor}</Text>
           </Box>
           <HStack justify="space-between">
-            <StarRating rating={5} />
+            <StarRating rating={rating} />
 
             <Text>
               <Button

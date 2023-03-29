@@ -43,6 +43,7 @@ function MyLecture() {
                     lectureTitle={item.lecture.lectureTitle}
                     targetAudience={item.lecture.targetAudience}
                     instructor={item.lecture.instructor.username}
+                    rating={data.ratings[item.lecture.lectureTitle]}
                   />
                 </GridItem>
               ))}

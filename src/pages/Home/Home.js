@@ -51,7 +51,7 @@ function Home() {
                 showArrows={false}
                 autoPlay={true}
                 infiniteLoop={true}
-                interval={3500}
+                interval={2000}
                 style={{ height: '100%' }}
               >
                 <Box>
