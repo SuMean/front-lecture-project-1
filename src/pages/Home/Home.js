@@ -313,13 +313,12 @@ function Home() {
                 </Text>
               </Stack> */}
               <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
-                {data?.review.map(item => {
-                  console.log({ item: item });
+                {data?.review.map((item, index) => {
                   return (
                     <Stack align="center">
                       <ReviewCard
                         key={item.id}
-                        id={item.id}
+                        index={index + 1}
                         user={item.user.username}
                         contents={item.content}
                         rating={item.rating}

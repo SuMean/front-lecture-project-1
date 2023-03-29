@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 import StarRating from '../LectureCard/StarRating';
 
-const ReviewCard = ({ user, lectureNum, rating, id, contents }) => {
+const ReviewCard = ({ user, lectureNum, rating, id, contents, index }) => {
   return (
     <Stack>
       <Card
@@ -30,7 +30,7 @@ const ReviewCard = ({ user, lectureNum, rating, id, contents }) => {
         <Stack>
           <CardBody>
             <Heading size="md" fontSize="18px" py="1">
-              Best Review {id}
+              Best Review {index}
             </Heading>
             <Text py="2" color="#545454">
               {user}
